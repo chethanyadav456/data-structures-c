@@ -3,19 +3,19 @@
 
 /* 
     Single Linked List 
-    - It is a fundamental data structure, which stores the data in a node in a sequence where a siblge node has two parts data and ptr (which stores the address of the next node)
+    - It is a fundamental data structure, which stores the data in a node in a sequence where a single node has two parts data and ptr (which stores the address of the next node)
 
     node 
-    Header -> data + ptr (Which stores the address of the next node)
+     data + ptr (Which stores the address of the next node)
 
     EXAMPLE:-
-    [d/p]->[d/p]->[d/p]->[d/p]->[d/p]
+    Header->[d/p]---->[d/p]---->[d/p]---->[d/p]---->[d/p]<-Tail
 */
 
 struct node   
 {  
     int data;  
-    struct node *next;   
+    struct node *next;
 };  
 struct node *head;  
   
@@ -27,6 +27,7 @@ void last_delete();
 void random_delete();  
 void display();  
 void search();  
+
 int main ()  
 {  
     int choice =0;  
@@ -73,6 +74,7 @@ int main ()
     }  
     return 0;
 }  
+
 void beginsert()  
 {  
     struct node *ptr;  
@@ -92,7 +94,8 @@ void beginsert()
         printf("\nNode inserted");  
     }  
       
-}  
+}
+
 void lastinsert()  
 {  
     struct node *ptr,*temp;  
@@ -126,7 +129,8 @@ void lastinsert()
           
         }  
     }  
-}  
+}
+
 void randominsert()  
 {  
     int i,loc,item;   
@@ -158,7 +162,8 @@ void randominsert()
         temp ->next = ptr;   
         printf("\nNode inserted");  
     }  
-}  
+}
+
 void begin_delete()  
 {  
     struct node *ptr;  
@@ -167,29 +172,30 @@ void begin_delete()
         printf("\nList is empty\n");  
     }  
     else   
-    {  
-        ptr = head;  
-        head = ptr->next;  
-        free(ptr);  
-        printf("\nNode deleted from the begining ...\n");  
+    {
+        ptr = head;
+        head = ptr->next;
+        free(ptr);
+        printf("\nNode deleted from the begining ...😂\n");  
     }  
-}  
+}
+
 void last_delete()  
-{  
+{
     struct node *ptr,*ptr1;  
     if(head == NULL)  
-    {  
+    {
         printf("\nlist is empty");  
     }  
     else if(head -> next == NULL)  
-    {  
+    {
         head = NULL;  
         free(head);  
         printf("\nOnly node of the list deleted ...\n");  
-    }  
+    }
           
     else  
-    {  
+    {
         ptr = head;   
         while(ptr->next != NULL)  
         {  
@@ -199,15 +205,16 @@ void last_delete()
         ptr1->next = NULL;  
         free(ptr);  
         printf("\nDeleted Node from the last ...\n");  
-    }     
-}  
+    }
+}
+
 void random_delete()  
 {  
     struct node *ptr,*ptr1;  
     int loc,i;    
-    printf("\n Enter the location of the node after which you want to perform deletion \n");  
-    scanf("%d",&loc);  
-    ptr=head;  
+    printf("\n Enter the location of the node after which you want to perform deletion \n");
+    scanf("%d",&loc);
+    ptr=head;
     for(i=0;i<loc;i++)  
     {  
         ptr1 = ptr;       
